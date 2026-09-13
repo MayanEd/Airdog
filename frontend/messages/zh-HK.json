@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "title": "Airdog｜官方商城",
+    "description": "高性能Airdog空氣清新機。面向日本以外顧客的官方商城。"
+  },
+  "nav": {
+    "login": "登入",
+    "register": "會員登記",
+    "logout": "登出",
+    "account": "我的帳戶",
+    "cart": "購物車",
+    "searchPlaceholder": "輸入關鍵字",
+    "search": "搜尋",
+    "findProducts": "尋找商品",
+    "news": "公告",
+    "contact": "聯絡我們",
+    "faq": "常見問題",
+    "medical": "醫療・護理機構",
+    "home": "主頁",
+    "allProducts": "全部商品"
+  },
+  "promo": {
+    "headline": "官方網站「最優惠價錢！※1」 購買後3個工作天內發貨 ※2",
+    "note": "※1「最優惠價錢」指授權經銷商目前售價為最低價。※2訂單集中或庫存情況可能導致日期延後。"
+  },
+  "home": {
+    "news": "NEWS",
+    "newsSub": "新聞",
+    "readMore": "閱讀更多",
+    "lineup": "LINE UP",
+    "lineupSub": "產品系列",
+    "special": "SPECIAL PROGRAM",
+    "specialSub": "特別優待計劃",
+    "slideMedicalTitle": "醫療・護理機構限定新服務",
+    "slideMedicalBody": "1年廠商保用＋1年延長保用。只限直銷。",
+    "slideMedicalCta": "了解詳情",
+    "slideTvcTitle": "世界級空氣清淨",
+    "slideTvcBody": "Airdog — 專利TPA濾網技術",
+    "slideFlagship": "旗艦性能型號",
+    "slideX1": "慳位 X1D",
+    "slideX3": "輕巧 X3D",
+    "slideX8": "專業型號 X8D Pro",
+    "slideCare": "Airdog CARE+",
+    "slideMini": "Airdog mini系列",
+    "slideMoi": "Airdog moi加濕器",
+    "slideTop": "選配頂板",
+    "slideCleaner": "保養用品"
+  },
+  "product": {
+    "priceTaxIn": "連稅",
+    "addToCart": "加入購物車",
+    "added": "已加入購物車",
+    "quantity": "數量",
+    "sku": "商品編號",
+    "color": "顏色",
+    "size": "尺寸",
+    "stock": "庫存",
+    "in_stock": "成單後3個工作天內發貨（不含週末及公眾假期）",
+    "specs": "規格表",
+    "included": "套裝內容",
+    "description": "商品說明",
+    "disclaimers": "注意事項",
+    "related": "相關商品",
+    "yen": "日圓"
+  },
+  "cart": {
+    "title": "購物車",
+    "empty": "購物車是空的。",
+    "continue": "繼續購物",
+    "checkout": "提交查詢／訂購",
+    "total": "小計",
+    "remove": "刪除",
+    "update": "更新"
+  },
+  "inquiry": {
+    "title": "查詢結帳",
+    "intro": "本海外站不線上扣款。請將購物車作為查詢提交，我們將確認庫存、物流與付款方式。",
+    "name": "姓名",
+    "email": "電郵",
+    "phone": "電話",
+    "country": "國家／地區",
+    "address": "收貨地址",
+    "message": "留言",
+    "submit": "提交查詢",
+    "success": "多謝。我們已收到查詢，將以電郵回覆。",
+    "needItems": "請先將商品加入購物車。"
+  },
+  "auth": {
+    "loginTitle": "登入",
+    "registerTitle": "登記會員",
+    "email": "電郵",
+    "password": "密碼",
+    "name": "姓名",
+    "phone": "電話",
+    "submitLogin": "登入",
+    "submitRegister": "登記",
+    "noAccount": "還沒有帳戶？",
+    "hasAccount": "已有帳戶？",
+    "error": "無法完成請求，請檢查填寫內容。"
+  },
+  "account": {
+    "title": "我的帳戶",
+    "orders": "我的查詢",
+    "empty": "暫無查詢。",
+    "status": "狀態"
+  },
+  "contact": {
+    "title": "聯絡我們",
+    "intro": "請使用本表格，我們將以電郵回覆。原日本站聯絡表格無法鏡像（HTTP 403）。",
+    "name": "姓名",
+    "email": "電郵",
+    "product": "商品（選填）",
+    "message": "留言",
+    "submit": "發送",
+    "success": "多謝。留言已送達。"
+  },
+  "cookie": {
+    "text": "我們使用Cookie以保持登入、記住購物車與語言，並提供更好的服務。詳情請見網站使用條款。",
+    "accept": "同意"
+  },
+  "footer": {
+    "guide": "購物指南",
+    "faq": "常見問題",
+    "shipping": "配送與運費",
+    "returns": "取消與退貨",
+    "warranty": "保用說明",
+    "import": "關於平行進口的注意事項",
+    "privacy": "私隱政策",
+    "company": "公司概要",
+    "seller": "銷售者資料",
+    "contact": "聯絡我們",
+    "sales": "銷售條款",
+    "use": "網站使用條款",
+    "careTerms": "Airdog CARE+ 使用條款",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "copyright": "Copyright © Airdog Japan, Inc. All rights reserved."
+  },
+  "admin": {
+    "title": "管理後台",
+    "login": "管理員登入",
+    "products": "商品",
+    "users": "用戶",
+    "inquiries": "查詢",
+    "contacts": "留言",
+    "save": "儲存",
+    "create": "新增",
+    "delete": "刪除",
+    "price": "價格（日圓）",
+    "status": "狀態"
+  },
+  "common": {
+    "loading": "載入中…",
+    "notFound": "頁面不存在",
+    "back": "返回",
+    "language": "語言"
+  }
+}

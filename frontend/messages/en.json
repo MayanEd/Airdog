@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "title": "Airdog | Official store",
+    "description": "High-performance Airdog air purifiers. Official store for customers outside Japan."
+  },
+  "nav": {
+    "login": "Log in",
+    "register": "Register",
+    "logout": "Log out",
+    "account": "My account",
+    "cart": "Cart",
+    "searchPlaceholder": "Enter keywords",
+    "search": "Search",
+    "findProducts": "Find products",
+    "news": "News",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "medical": "Medical & care facilities",
+    "home": "Home",
+    "allProducts": "All products"
+  },
+  "promo": {
+    "headline": "Official site: “Best Rate Price! ※1”  We ship within 3 business days after purchase ※2",
+    "note": "※1 “Best Rate Price” means the current selling price at authorized retailers is the lowest available. ※2 Dates may be extended during order surges or according to stock."
+  },
+  "home": {
+    "news": "NEWS",
+    "newsSub": "News",
+    "readMore": "Read more",
+    "lineup": "LINE UP",
+    "lineupSub": "Lineup",
+    "special": "SPECIAL PROGRAM",
+    "specialSub": "Special program",
+    "slideMedicalTitle": "New service for medical & care facilities",
+    "slideMedicalBody": "1-year manufacturer warranty + 1-year extension. Direct sales only.",
+    "slideMedicalCta": "Learn more",
+    "slideTvcTitle": "World-class air purification",
+    "slideTvcBody": "Airdog — patented TPA filter technology",
+    "slideFlagship": "Flagship performance model",
+    "slideX1": "Space-saving X1D",
+    "slideX3": "Compact X3D",
+    "slideX8": "Professional X8D Pro",
+    "slideCare": "Airdog CARE+",
+    "slideMini": "Airdog mini Series",
+    "slideMoi": "Airdog moi humidifier",
+    "slideTop": "Optional top plate",
+    "slideCleaner": "Maintenance goods"
+  },
+  "product": {
+    "priceTaxIn": "incl. tax",
+    "addToCart": "Add to cart",
+    "added": "Added to cart",
+    "quantity": "Qty",
+    "sku": "SKU",
+    "color": "Color",
+    "size": "Size",
+    "stock": "Availability",
+    "in_stock": "Ships within 3 business days (excl. weekends & holidays)",
+    "specs": "Specifications",
+    "included": "What's included",
+    "description": "Overview",
+    "disclaimers": "Notes",
+    "related": "Related products",
+    "yen": "JPY"
+  },
+  "cart": {
+    "title": "Shopping cart",
+    "empty": "Your cart is empty.",
+    "continue": "Continue shopping",
+    "checkout": "Request a quote / order",
+    "total": "Subtotal",
+    "remove": "Remove",
+    "update": "Update"
+  },
+  "inquiry": {
+    "title": "Inquiry checkout",
+    "intro": "This overseas storefront does not capture payment online. Submit your cart as an inquiry and we will confirm stock, shipping, and payment.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "country": "Country / region",
+    "address": "Shipping address",
+    "message": "Message",
+    "submit": "Submit inquiry",
+    "success": "Thank you. We have received your inquiry and will reply by email.",
+    "needItems": "Please add items to the cart first."
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "phone": "Phone",
+    "submitLogin": "Log in",
+    "submitRegister": "Register",
+    "noAccount": "New here?",
+    "hasAccount": "Already registered?",
+    "error": "Could not complete the request. Please check your details."
+  },
+  "account": {
+    "title": "My account",
+    "orders": "My inquiries",
+    "empty": "No inquiries yet.",
+    "status": "Status"
+  },
+  "contact": {
+    "title": "Contact us",
+    "intro": "Please use this form. We will reply by email. The original Japan contact form could not be mirrored (HTTP 403).",
+    "name": "Name",
+    "email": "Email",
+    "product": "Product (optional)",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Thank you. Your message has been sent."
+  },
+  "cookie": {
+    "text": "We use cookies to keep you signed in, remember your cart and language, and provide a better service. See the website terms of use for details.",
+    "accept": "Accept"
+  },
+  "footer": {
+    "guide": "Shopping guide",
+    "faq": "FAQ",
+    "shipping": "Shipping",
+    "returns": "Cancellations & returns",
+    "warranty": "Warranty",
+    "import": "Notice on parallel imports",
+    "privacy": "Privacy policy",
+    "company": "Company",
+    "seller": "Seller information",
+    "contact": "Contact",
+    "sales": "Terms of sale",
+    "use": "Website terms of use",
+    "careTerms": "Airdog CARE+ terms",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "copyright": "Copyright © Airdog Japan, Inc. All rights reserved."
+  },
+  "admin": {
+    "title": "Admin",
+    "login": "Admin login",
+    "products": "Products",
+    "users": "Users",
+    "inquiries": "Inquiries",
+    "contacts": "Contact messages",
+    "save": "Save",
+    "create": "Create",
+    "delete": "Delete",
+    "price": "Price (JPY)",
+    "status": "Status"
+  },
+  "common": {
+    "loading": "Loading…",
+    "notFound": "Page not found",
+    "back": "Back",
+    "language": "Language"
+  }
+}

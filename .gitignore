@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+dist/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.local
+*.log
+cookies.txt
+frontend/public/assets/manifest.json
+.DS_Store
+Thumbs.db
