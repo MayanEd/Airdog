@@ -1,17 +1,18 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { apiFetch } from "@/lib/shopApi";
 
 export default function AddToCart({ productId }: { productId: number }) {
   const t = useTranslations("product");
+  const locale = useLocale();
   const [qty, setQty] = useState(1);
   const [msg, setMsg] = useState("");
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const res = await fetch("/api/cart?locale=en", {
+    const res = await apiFetch(`/api/cart?locale=${locale}`, {
       method: "POST",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ product_id: productId, quantity: qty }),
     });

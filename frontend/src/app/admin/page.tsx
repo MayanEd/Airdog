@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { formatYen } from "@/lib/api";
+import { assetUrl } from "@/lib/paths";
+import { apiFetch } from "@/lib/shopApi";
 
 type User = { id: number; email: string; name: string; phone: string; is_admin: boolean };
 type Product = { id: number; sku: string; slug: string; name: string; price_yen: number; color: string };
@@ -26,7 +28,7 @@ export default function AdminPage() {
   const [error, setError] = useState("");
 
   async function refresh() {
-    const meRes = await fetch("/api/auth/me", { credentials: "include" });
+    const meRes = await apiFetch("/api/auth/me");
     if (!meRes.ok) {
       setMe(null);
       return;
@@ -39,10 +41,10 @@ export default function AdminPage() {
     }
     setMe(user);
     const [p, u, i, c] = await Promise.all([
-      fetch("/api/admin/products", { credentials: "include" }).then((r) => r.json()),
-      fetch("/api/admin/users", { credentials: "include" }).then((r) => r.json()),
-      fetch("/api/admin/inquiries", { credentials: "include" }).then((r) => r.json()),
-      fetch("/api/admin/contacts", { credentials: "include" }).then((r) => r.json()),
+      apiFetch("/api/admin/products").then((r) => r.json()),
+      apiFetch("/api/admin/users").then((r) => r.json()),
+      apiFetch("/api/admin/inquiries").then((r) => r.json()),
+      apiFetch("/api/admin/contacts").then((r) => r.json()),
     ]);
     setProducts(p);
     setUsers(u);
@@ -57,9 +59,8 @@ export default function AdminPage() {
   async function login(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const res = await fetch("/api/auth/login", {
+    const res = await apiFetch("/api/auth/login", {
       method: "POST",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: fd.get("email"), password: fd.get("password") }),
     });
@@ -75,9 +76,8 @@ export default function AdminPage() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const sku = String(fd.get("sku"));
-    await fetch("/api/admin/products", {
+    await apiFetch("/api/admin/products", {
       method: "POST",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         sku,
@@ -99,9 +99,8 @@ export default function AdminPage() {
   async function addUser(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    await fetch("/api/admin/users", {
+    await apiFetch("/api/admin/users", {
       method: "POST",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: fd.get("email"),
@@ -152,7 +151,7 @@ export default function AdminPage() {
         <button type="button" onClick={() => setTab("contacts")}>
           Contacts
         </button>
-        <a href="/en">Storefront</a>
+        <a href={assetUrl("/en/")}>Storefront</a>
       </nav>
 
       {tab === "products" && (
@@ -189,7 +188,7 @@ export default function AdminPage() {
                     <button
                       type="button"
                       onClick={async () => {
-                        await fetch(`/api/admin/products/${p.id}`, { method: "DELETE", credentials: "include" });
+                        await apiFetch(`/api/admin/products/${p.id}`, { method: "DELETE" });
                         refresh();
                       }}
                     >
@@ -262,9 +261,8 @@ export default function AdminPage() {
                     <select
                       defaultValue={row.status}
                       onChange={async (e) => {
-                        await fetch(`/api/admin/inquiries/${row.id}`, {
+                        await apiFetch(`/api/admin/inquiries/${row.id}`, {
                           method: "PATCH",
-                          credentials: "include",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({ status: e.target.value }),
                         });

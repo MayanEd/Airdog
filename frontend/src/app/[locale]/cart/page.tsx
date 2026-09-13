@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { formatYen } from "@/lib/api";
+import { assetUrl } from "@/lib/paths";
+import { apiFetch } from "@/lib/shopApi";
 
 type Cart = {
   items: { id: number; quantity: number; line_yen: number; product: { slug: string; name: string; sku: string; price_yen: number; image: string } }[];
@@ -15,7 +17,7 @@ export default function CartPage() {
   const locale = useLocale();
   const [cart, setCart] = useState<Cart | null>(null);
   function load() {
-    fetch(`/api/cart?locale=${locale}`, { credentials: "include" })
+    apiFetch(`/api/cart?locale=${locale}`)
       .then((r) => r.json())
       .then(setCart);
   }
@@ -23,9 +25,8 @@ export default function CartPage() {
     load();
   }, [locale]);
   async function update(id: number, quantity: number) {
-    await fetch(`/api/cart/${id}?locale=${locale}`, {
+    await apiFetch(`/api/cart/${id}?locale=${locale}`, {
       method: "PATCH",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ quantity }),
     });
@@ -53,7 +54,7 @@ export default function CartPage() {
               {cart.items.map((item) => (
                 <tr key={item.id}>
                   <td>
-                    <img src={item.product.image} alt="" width={80} />
+                    <img src={assetUrl(item.product.image)} alt="" width={80} />
                   </td>
                   <td>
                     <Link href={`/products/${item.product.slug}`}>{item.product.name}</Link>

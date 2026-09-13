@@ -6,6 +6,8 @@ import { Link, useRouter } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import CartBadge from "./CartBadge";
 import type { Category } from "@/lib/api";
+import { assetUrl } from "@/lib/paths";
+import { apiFetch } from "@/lib/shopApi";
 
 export default function Header({ categories }: { categories: Category[] }) {
   const t = useTranslations("nav");
@@ -15,7 +17,7 @@ export default function Header({ categories }: { categories: Category[] }) {
   const [user, setUser] = useState<{ name: string; email: string; is_admin: boolean } | null>(null);
 
   useEffect(() => {
-    fetch("/api/auth/me", { credentials: "include" })
+    apiFetch("/api/auth/me")
       .then((r) => (r.ok ? r.json() : null))
       .then(setUser)
       .catch(() => setUser(null));
@@ -30,7 +32,7 @@ export default function Header({ categories }: { categories: Category[] }) {
     <header className="site-header">
       <div className="header-top">
         <Link href="/" className="logo">
-          <img src="/assets/img/usr/common/header-logo.webp" alt="Airdog Japan" />
+          <img src={assetUrl("/assets/img/usr/common/header-logo.webp")} alt="Airdog Japan" />
         </Link>
         <form className="search-form" onSubmit={onSearch}>
           <input
@@ -53,14 +55,14 @@ export default function Header({ categories }: { categories: Category[] }) {
                 className="btn-ghost"
                 type="button"
                 onClick={async () => {
-                  await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
+                  await apiFetch("/api/auth/logout", { method: "POST" });
                   setUser(null);
                   router.refresh();
                 }}
               >
                 {t("logout")}
               </button>
-              {user.is_admin ? <a href="/admin">Admin</a> : null}
+              {user.is_admin ? <a href={assetUrl("/admin/")}>Admin</a> : null}
             </>
           ) : (
             <>

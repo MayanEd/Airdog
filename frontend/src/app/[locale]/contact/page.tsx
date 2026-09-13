@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
+import { apiFetch } from "@/lib/shopApi";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -9,7 +10,7 @@ export default function ContactPage() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const res = await fetch("/api/contact", {
+    const res = await apiFetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -23,6 +23,18 @@ docker compose up --build
 
 Languages: `/en`, `/zh-CN`, `/zh-HK`.
 
+## GitHub Pages
+
+Static storefront: **https://mayaned.github.io/Airdog/**
+
+Pushes to `master` build `frontend/` with `NEXT_PUBLIC_STATIC=1` and `NEXT_PUBLIC_BASE_PATH=/Airdog`, then publish the `out/` folder via GitHub Actions. Catalog, news, and CMS pages are bundled from `frontend/src/data/catalog.json`. Cart, accounts, inquiries, and admin use `localStorage` on the static site (the FastAPI/MySQL stack is not available on Pages).
+
+Refresh the bundled catalog after seed changes:
+
+```bash
+py -3.12 scripts/dump_static_catalog.py
+```
+
 ## Local development (without full Docker for the web app)
 
 1. Start MySQL and API: `docker compose up mysql api`

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { assetUrl } from "@/lib/paths";
 
 type Slide = { src: string; href: string; titleKey: string; bodyKey?: string; cta?: boolean };
 
@@ -32,7 +33,7 @@ export default function HeroSlider() {
       <div className="hero-track" style={{ transform: `translateX(-${i * 100}%)` }}>
         {SLIDES.map((s) => (
           <Link key={s.src} href={s.href} className="hero-slide">
-            <img src={s.src} alt="" />
+            <img src={assetUrl(s.src)} alt="" />
             <div className="hero-overlay">
               <h2>{t(s.titleKey)}</h2>
               {s.bodyKey ? <p>{t(s.bodyKey)}</p> : null}

@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { formatYen } from "@/lib/api";
+import { apiFetch } from "@/lib/shopApi";
 
 export default function InquiryPage() {
   const t = useTranslations("inquiry");
@@ -13,7 +14,7 @@ export default function InquiryPage() {
   const [total, setTotal] = useState(0);
   const [empty, setEmpty] = useState(false);
   useEffect(() => {
-    fetch(`/api/cart?locale=${locale}`, { credentials: "include" })
+    apiFetch(`/api/cart?locale=${locale}`)
       .then((r) => r.json())
       .then((d) => {
         setTotal(d.total_yen || 0);
@@ -23,9 +24,8 @@ export default function InquiryPage() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const res = await fetch(`/api/inquiries?locale=${locale}`, {
+    const res = await apiFetch(`/api/inquiries?locale=${locale}`, {
       method: "POST",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: fd.get("name"),

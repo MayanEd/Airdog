@@ -3,6 +3,15 @@ import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { apiGet, type Category, type Product } from "@/lib/api";
 import { Link } from "@/i18n/navigation";
+import { categorySlugs } from "@/lib/catalog";
+import { assetUrl } from "@/lib/paths";
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) => categorySlugs().map((slug) => ({ locale, slug })));
+}
+
+export const dynamicParams = false;
 
 export default async function CategoryPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
@@ -28,7 +37,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
         <h1>{cat.name}</h1>
         <p>{cat.description}</p>
       </div>
-      {cat.image ? <img src={cat.image} alt="" style={{ width: "100%", maxHeight: 320, objectFit: "cover", marginBottom: 24 }} /> : null}
+      {cat.image ? <img src={assetUrl(cat.image)} alt="" style={{ width: "100%", maxHeight: 320, objectFit: "cover", marginBottom: 24 }} /> : null}
       <div className="product-grid">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />

@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeroSlider from "@/components/HeroSlider";
 import { apiGet, type Category, type NewsItem } from "@/lib/api";
+import { assetUrl } from "@/lib/paths";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -51,7 +52,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="lineup-grid">
             {lineup.map((c) => (
               <Link key={c.slug} href={c.slug === "filter-service" ? "/pages/filter-service" : c.slug === "care-plus" ? "/pages/care-plus" : `/categories/${c.slug}`} className="lineup-card">
-                <img src={c.image} alt={c.name} />
+                <img src={assetUrl(c.image)} alt={c.name} />
                 <h3>{c.name}</h3>
                 <p>{c.description}</p>
               </Link>
@@ -67,11 +68,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           <div className="lineup-grid">
             <Link href="/pages/medical" className="lineup-card">
-              <img src="/assets/img/campaign/medical_banner_20250119.jpg" alt="" />
+              <img src={assetUrl("/assets/img/campaign/medical_banner_20250119.jpg")} alt="" />
               <h3>{tNav("medical")}</h3>
             </Link>
             <Link href="/pages/care-plus" className="lineup-card">
-              <img src="/assets/img/usr/slider/slider_airdogcare-plus.jpg" alt="Airdog CARE+" />
+              <img src={assetUrl("/assets/img/usr/slider/slider_airdogcare-plus.jpg")} alt="Airdog CARE+" />
               <h3>Airdog CARE+</h3>
             </Link>
           </div>

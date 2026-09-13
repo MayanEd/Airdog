@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { formatYen } from "@/lib/api";
+import { apiFetch } from "@/lib/shopApi";
 
 type Inquiry = {
   id: number;
@@ -19,14 +20,14 @@ export default function AccountPage() {
   const [user, setUser] = useState<{ name: string; email: string } | null>(null);
   const [rows, setRows] = useState<Inquiry[]>([]);
   useEffect(() => {
-    fetch("/api/auth/me", { credentials: "include" }).then(async (r) => {
+    apiFetch("/api/auth/me").then(async (r) => {
       if (!r.ok) {
         router.push("/login");
         return;
       }
       setUser(await r.json());
     });
-    fetch("/api/inquiries/mine", { credentials: "include" })
+    apiFetch("/api/inquiries/mine")
       .then((r) => (r.ok ? r.json() : []))
       .then(setRows);
   }, [router]);

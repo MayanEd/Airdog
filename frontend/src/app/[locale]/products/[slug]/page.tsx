@@ -3,6 +3,15 @@ import { notFound } from "next/navigation";
 import AddToCart from "@/components/AddToCart";
 import { apiGet, formatYen, type Product } from "@/lib/api";
 import { Link } from "@/i18n/navigation";
+import { productSlugs } from "@/lib/catalog";
+import { assetUrl } from "@/lib/paths";
+import { routing } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) => productSlugs().map((slug) => ({ locale, slug })));
+}
+
+export const dynamicParams = false;
 
 export default async function ProductPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
@@ -32,7 +41,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
       </p>
       <div className="pdp">
         <div className="pdp-gallery">
-          <img src={product.image} alt={product.name} />
+          <img src={assetUrl(product.image)} alt={product.name} />
         </div>
         <div>
           <h1>{product.name}</h1>

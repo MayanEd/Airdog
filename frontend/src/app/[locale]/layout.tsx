@@ -13,8 +13,6 @@ const workSans = Work_Sans({ subsets: ["latin"], variable: "--font-work" });
 const notoSc = Noto_Sans_SC({ variable: "--font-sc", weight: ["400", "500", "600"] });
 const notoHk = Noto_Sans_HK({ variable: "--font-hk", weight: ["400", "500", "600"] });
 
-export const dynamic = "force-dynamic";
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
